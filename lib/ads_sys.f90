@@ -13,11 +13,11 @@ CONTAINS
         bin = 1 + size / interval * now
     END FUNCTION
 
-    PURE FUNCTION full(buffer, interval, now)
-        REAL, INTENT(IN), DIMENSION(:) :: buffer
+    PURE FUNCTION full(size, interval, now)
+        INTEGER, INTENT(IN) :: size
         REAL, INTENT(IN) :: interval, now
         LOGICAL :: full
-        full = bin(size(buffer), interval, now) .GT. size(buffer)
+        full = bin(size, interval, now) .GT. size
     END FUNCTION
 
     SUBROUTINE feed(buffer, interval, now, value)

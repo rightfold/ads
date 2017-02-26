@@ -17,13 +17,13 @@ PROGRAM ads_sys_test
     !----------------------------------------------------------------------!
 
     now = 7
-    IF (full(buffer, interval, now)) THEN
+    IF (full(size(buffer), interval, now)) THEN
         status = status + 1
         PRINT *, 'buffer should not be full', interval, now
     END IF
 
     now = 8
-    IF (.NOT. full(buffer, interval, now)) THEN
+    IF (.NOT. full(size(buffer), interval, now)) THEN
         status = status + 1
         PRINT *, 'buffer should be full', interval, now
     END IF
