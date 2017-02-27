@@ -1,6 +1,7 @@
 from glob import glob
 from os.path import basename, splitext
 import subprocess
+from waflib.TaskGen import task_gen
 
 def _test_name(path):
     return splitext(basename(path))[0]
@@ -12,9 +13,12 @@ def configure(ctx):
     ctx.load('compiler_fc')
     ctx.env.append_value('FCFLAGS', '-Wall')
     ctx.env.append_value('FCFLAGS', '-fcheck=all')
+    ctx.env.append_value('LINKFLAGS', '-lzmq')
 
 def build(ctx):
-    ctx.objects(source=glob('lib/ads_*.f90'), target='lib')
+    task_gen.mappings['.f03'] = task_gen.mappings['.f']
+
+    ctx.objects(source=glob('lib/ads_*.f90') + glob('lib/ads_*.f03'), target='lib')
 
     ctx.program(source='src/adsd.f90', target='adsd', use='lib')
 
