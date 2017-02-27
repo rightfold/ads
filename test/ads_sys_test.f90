@@ -7,7 +7,7 @@ PROGRAM ads_sys_test
     INTEGER :: status
 
     REAL, DIMENSION(5) :: buffer
-    REAL :: interval, now, value
+    REAL :: interval, now
 
     status = 0
 
