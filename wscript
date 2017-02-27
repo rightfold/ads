@@ -10,6 +10,8 @@ def options(ctx):
 
 def configure(ctx):
     ctx.load('compiler_fc')
+    ctx.env.append_value('FCFLAGS', '-Wall')
+    ctx.env.append_value('FCFLAGS', '-fcheck=all')
 
 def build(ctx):
     ctx.objects(source=glob('lib/ads_*.f90'), target='lib')
