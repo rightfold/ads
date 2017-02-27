@@ -10,7 +10,7 @@ CONTAINS
         INTEGER, INTENT(IN) :: size
         REAL, INTENT(IN) :: interval, now
         INTEGER :: bin
-        bin = 1 + size / interval * now
+        bin = 1 + int(size / interval * now)
     END FUNCTION
 
     PURE FUNCTION full(size, interval, now)
