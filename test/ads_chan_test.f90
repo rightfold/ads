@@ -17,13 +17,13 @@ PROGRAM ads_chan_test
     !----------------------------------------------------------------------!
 
     now = 7
-    IF (full(interval, now)) THEN
+    IF (buffer_index(interval, now) .NE. 1) THEN
         status = status + 1
         PRINT *, 'buffer should not be full', interval, now
     END IF
 
     now = 8
-    IF (.NOT. full(interval, now)) THEN
+    IF (buffer_index(interval, now) .NE. 2) THEN
         status = status + 1
         PRINT *, 'buffer should be full', interval, now
     END IF
