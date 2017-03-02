@@ -1,6 +1,6 @@
-PROGRAM ads_sys_test
+PROGRAM ads_chan_test
 
-    USE ads_sys
+    USE ads_chan
 
     IMPLICIT NONE
 

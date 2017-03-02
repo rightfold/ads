@@ -1,4 +1,4 @@
-MODULE ads_sys
+MODULE ads_chan
 
     IMPLICIT NONE
 
